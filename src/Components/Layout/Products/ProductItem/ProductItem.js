@@ -4,8 +4,8 @@ import React from 'react'
 const ProductItem = props => {
     let count = 0
     {props.cart.map((productId, index) => {
-        // console.log(productId);
-        // console.log(props.product.id);
+        console.log(productId);
+        console.log(props.product.id);
         if (productId.productId === props.product.id) {
                 return count = productId.productId
             }
