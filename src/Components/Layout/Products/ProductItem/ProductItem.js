@@ -6,11 +6,7 @@ const ProductItem = props => {
     {props.cart.map((productId, index) => {
         // console.log(productId);
         // console.log(props.product.id);
-        // console.log(props.product.id);
-        // console.log(props.product.id);
-                // console.log(props.product.id);
 
-                        // console.log(props.product.id);
 
         if (productId.productId === props.product.id) {
                 return count = productId.productId
