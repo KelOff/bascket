@@ -1,19 +1,20 @@
 import React from 'react'
 import ProductItem from './ProductItem/ProductItem'
+import classes from './Products.css'
 
 const Products = props => (
     
-    <div>
+    <div className={classes.Products}>
     {props.state.products.map((product, index) => {
 
-            console.log(product);
-            // console.log(props.state.cart);
         return (    
             
                 <ProductItem 
                     key={index}
                     product={product}
-                    cart={props.state.cart}
+                    state={props.state.cart}
+                    changeCountHandler={props.changeCountHandler}
+                    
 
                 />
             

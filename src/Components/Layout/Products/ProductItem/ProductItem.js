@@ -1,27 +1,33 @@
 import React from 'react'
+import classes from './ProductItem.css'
+import Button from '../../../../UI/Buttons/Button'
 
 
 const ProductItem = props => {
     let count = 0
-    {props.cart.map((productId, index) => {
-        // console.log(productId);
-        // console.log(props.product.id);
+    {props.state.map(productId => {
 
 
         if (productId.productId === props.product.id) {
                 return count = productId.productId
             }
-            // console.log(count);
-        
         
     })}
         return (
-            <div style={{border: '1px solid black'}}>
-                <p> name: { props.product.name } </p>
-                <p> price:  { props.product.price } </p>
-                <button>-</button>
-                <p> count: {count}</p>
-                <button>+</button>
+            <div className={classes.ProductItem}>
+                <p> name: { props.product.name } </p> &nbsp;
+                <p> price:  { props.product.price } </p> &nbsp;
+                
+                <Button
+                    changeCountHandler={props.changeCountHandler}
+                    state={props.state}
+                    productId={props.product.id}
+                >
+                    <p>
+                        count: {count}
+                    </p>
+                </Button>
+                
 
                
                 

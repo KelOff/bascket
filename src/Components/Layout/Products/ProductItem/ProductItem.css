@@ -1,0 +1,6 @@
+.ProductItem {
+    border: 2px solid rgb(124, 118, 118);
+    border-radius: 5px;
+    display: flex;
+
+}

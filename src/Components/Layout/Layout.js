@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Products from './Products/Products'
 import Bascket from './Bascket/Bascket'
+import classes from './Layout.css'
 
 class Layout extends Component {
 
@@ -39,17 +40,29 @@ class Layout extends Component {
           ]  
     }
 
-
+    
+   
+    changeCountHandler = (value, productId) => {
+        // console.log( this.state.cart )
+        // console.log(value);
+        console.log(productId);
+        this.setState({
+            // cart: this.state.cart[productId - 1 ].count + value
+            
+        })
+    }
+    
     render() {
         return (
             <React.Fragment>
                 <Products 
+                    changeCountHandler={this.changeCountHandler}
                     state={this.state}
                 />
 
-                <Bascket 
+                {/* <Bascket 
                     state={this.state}
-                />
+                /> */}
             </React.Fragment>
         )
     }
