@@ -35,30 +35,50 @@ class Layout extends Component {
             },
             {
               productId: 3,
-              count: 3,
+              count: 2,
             }
           ]  
     }
 
-    
-   
+
     changeCountHandler = (value, productId) => {
-        // console.log( this.state.cart )
-        // console.log(value);
-        console.log(productId);
+        let updatedCartArray = []
+        
+        for (let i = 0; i < this.state.cart.length; ++i) {
+            updatedCartArray.push(this.state.cart[i]);
+            if (this.state.cart[i].productId === productId) {
+                updatedCartArray[i].count = updatedCartArray[i].count + value
+            }
+        }
         this.setState({
-            // cart: this.state.cart[productId - 1 ].count + value
-            
+            ...this.state,
+            cart: updatedCartArray, 
         })
     }
     
+    addProductHandler = (productId) => {
+        this.setState ({
+            ...this.state,
+            cart: [
+                ...this.state.cart,
+                {
+                    productId: productId,
+                    count: 1,
+                }
+            ],
+        })
+    }
+        
     render() {
+  
         return (
             <React.Fragment>
                 <Products 
-                    changeCountHandler={this.changeCountHandler}
+                    onClick={this.changeCountHandler}
                     state={this.state}
+                    onAdd={this.addProductHandler}
                 />
+             
 
                 {/* <Bascket 
                     state={this.state}

@@ -2,7 +2,6 @@ import React from 'react'
 import classes from './Button.css'
 
 const Button = props => {
-
     const cls = [
         classes.Button,
         classes[props.type]
@@ -20,7 +19,7 @@ const Button = props => {
                 {props.children}
             </button>
             <button
-                onClick={() => props.changeCountHandler(-1, props.productId)}
+                onClick={() => props.changeCountHandler(+1, props.productId)}
             >+</button>
         </div>
 

@@ -13,7 +13,8 @@ const Products = props => (
                     key={index}
                     product={product}
                     state={props.state.cart}
-                    changeCountHandler={props.changeCountHandler}
+                    changeCountHandler={props.onClick}
+                    addProductHandler={props.onAdd}
                     
 
                 />

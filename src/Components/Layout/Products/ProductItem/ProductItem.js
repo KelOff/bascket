@@ -4,12 +4,12 @@ import Button from '../../../../UI/Buttons/Button'
 
 
 const ProductItem = props => {
-    let count = 0
+    let count = null
     {props.state.map(productId => {
 
 
         if (productId.productId === props.product.id) {
-                return count = productId.productId
+                return count = productId.count
             }
         
     })}
@@ -18,15 +18,26 @@ const ProductItem = props => {
                 <p> name: { props.product.name } </p> &nbsp;
                 <p> price:  { props.product.price } </p> &nbsp;
                 
-                <Button
-                    changeCountHandler={props.changeCountHandler}
+                { count !== null && count !== 0
+                ? <Button
                     state={props.state}
                     productId={props.product.id}
+                    changeCountHandler={props.changeCountHandler}
+                    
                 >
                     <p>
                         count: {count}
                     </p>
                 </Button>
+
+                : 
+                <p
+                    onClick={() => props.addProductHandler(props.product.id)}
+
+                > AddProd</p>
+                }   
+
+                
                 
 
                
