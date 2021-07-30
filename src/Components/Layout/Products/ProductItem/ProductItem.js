@@ -1,6 +1,7 @@
 import React from 'react'
 import classes from './ProductItem.css'
 import Button from '../../../../UI/Buttons/Button'
+import AddProduct from '../../../../UI/Buttons/AddProduct/AddProduct'
 
 
 const ProductItem = props => {
@@ -18,7 +19,7 @@ const ProductItem = props => {
                 <p> name: { props.product.name } </p> &nbsp;
                 <p> price:  { props.product.price } </p> &nbsp;
                 
-                { count !== null && count !== 0
+                { count !== null && count > 0
                 ? <Button
                     state={props.state}
                     productId={props.product.id}
@@ -31,10 +32,10 @@ const ProductItem = props => {
                 </Button>
 
                 : 
-                <p
-                    onClick={() => props.addProductHandler(props.product.id)}
-
-                > AddProd</p>
+                <AddProduct
+                    addProductHandler={props.addProductHandler}
+                    productId={props.product.id}
+                > </AddProduct>
                 }   
 
                 
