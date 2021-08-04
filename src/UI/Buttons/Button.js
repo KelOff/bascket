@@ -8,16 +8,16 @@ const Button = props => {
     ]
 
     return (
-        <div>
+        <div className={classes.Button}>
             <button
                 onClick={() => props.changeCountHandler(-1, props.productId)}
-            >-</button>
-            <button 
+            >-</button> &nbsp;
+            <span  style={{display: 'inline-block'}}
                 className={cls.join(' ')}
                 disabled={props.disabled}
             >
                 {props.children}
-            </button>
+            </span> &nbsp;
             <button
                 onClick={() => props.changeCountHandler(+1, props.productId)}
             >+</button>

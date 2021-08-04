@@ -2,44 +2,42 @@ import React, { Component } from 'react'
 import Products from './Products/Products'
 import Basket from './Basket/Basket'
 import classes from './Layout.css'
+// import products from '../../products.json'
+
 
 class Layout extends Component {
+    
+    
 
-    state = {
-        products: [
-            {
-            id: 1,
-            name: 'Product 1',
-            price: 100,
-            },
-            {
-            id: 2,
-            name: 'Product 2',
-            price: 200,
-            },
-            {
-            id: 3,
-            name: 'Product 3',
-            price: 100,
-            },
-            {
-            id: 4,
-            name: 'Product 4',
-            price: 5,
-            }
-        ],
-        cart: [
-            {
-              productId: 1,
-              count: 1,
-            },
-            {
-              productId: 3,
-              count: 2,
-            }
-          ]  
+    state={
+        products:[],
+        loadedProducts: false,
+        cart: [],
+        loadedCart: false 
     }
-
+    
+    componentDidMount() {
+        fetch('state/products.json')
+        .then( res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    products: result,
+                    loadedProducts: true
+                })
+            }
+        )
+        fetch('state/cart.json')
+        .then( res => res.json())
+        .then(
+            (result) => {
+                this.setState({
+                    cart: result,
+                    loadedCart: true
+                })
+            }
+        )
+    }
 
     changeCountHandler = (value, productId) => {
         let updatedCartArray = []
@@ -76,7 +74,6 @@ class Layout extends Component {
     }
         
     render() {
-
         this.state.cart.sort(function (a, b) {
             if (a.productId > b.productId) {
                 return 1
@@ -88,16 +85,18 @@ class Layout extends Component {
         })
         return (
             <React.Fragment>
-                <Products 
-                    onClick={this.changeCountHandler}
-                    state={this.state}
-                    onAdd={this.addProductHandler}
-                />
-             
-
-                <Basket 
-                    state={this.state}
-                />
+                {this.state.loadedProducts && this.state.loadedCart
+                ? <React.Fragment>
+                    <Products 
+                        onClick={this.changeCountHandler}
+                        state={this.state}
+                        onAdd={this.addProductHandler}
+                    />
+                    <Basket 
+                        state={this.state}
+                    />  
+                  </React.Fragment>
+                : null}
             </React.Fragment>
         )
     }
