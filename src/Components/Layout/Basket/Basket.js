@@ -1,5 +1,6 @@
 import React from 'react'
-import BasketGoods from './BasketGoods'
+import BasketGoods from './BacketGoods/BasketGoods'
+import classes from './Basket.css'
 
 const Bascket = props => {
     
@@ -12,19 +13,16 @@ const Bascket = props => {
     }
 
     return (
-        <div>
+        <div className={classes.Basket}>
             <p> Products in the basket: &nbsp;
-                { props.state.cart.length} 
+                <span>{ props.state.cart.length}</span> 
             </p>
             <BasketGoods 
                 state={props.state}
             />
-            <p>Cost: {result} </p>
-
+            <p>Cost: <span>{result}</span> </p>
         </div>
     )
-    
-    
 }
 
 export default Bascket

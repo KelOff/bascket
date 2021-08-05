@@ -1,5 +1,5 @@
 import React from 'react'
-
+import classes from './BasketGoodsItem.css'
 
 const BasketGoodsItem = props => {
 
@@ -16,7 +16,7 @@ const BasketGoodsItem = props => {
     const cost = sum * count
         
     return (
-        <li>
+        <li className={classes.BasketGoodsItem} >
             In the basket   <b>{ count }</b>   products   <b>{name }</b>   summary cost:   <b>{ cost }</b>
         </li>
     )
