@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Products from "./Products/Products";
 import Basket from "./Basket/Basket";
-// import classes from './Layout.css'
-
-// import products from '../../products.json'
 
 class Layout extends Component {
   state = {
@@ -34,17 +31,14 @@ class Layout extends Component {
   }
 
   changeCountHandler = (value, productId) => {
-    let updatedCartArray = [];
+    let updatedCartArray = [...this.state.cart];
 
     for (let i = 0; i < this.state.cart.length; ++i) {
-      updatedCartArray.push(this.state.cart[i]);
       if (this.state.cart[i].productId === productId) {
         updatedCartArray[i].count = updatedCartArray[i].count + value;
-      }
-    }
-    for (let i = 0; i < updatedCartArray.length; i++) {
-      if (updatedCartArray[i].count <= 0) {
-        updatedCartArray.splice(i, 1);
+        if (updatedCartArray[i].count <= 0) {
+          updatedCartArray.splice(i, 1);
+        }
       }
     }
 
@@ -68,15 +62,15 @@ class Layout extends Component {
   };
 
   render() {
-    this.state.cart.sort(function (a, b) {
-      if (a.productId > b.productId) {
-        return 1;
-      }
-      if (a.productId < b.productId) {
-        return -1;
-      }
-      return 0;
-    });
+    // this.state.cart.sort(function (a, b) {
+    //   if (a.productId > b.productId) {
+    //     return 1
+    //   }
+    //   if (a.productId < b.productId) {
+    //     return -1
+    //   }
+    //   return 0
+    // })
     return (
       <React.Fragment>
         {this.state.loadedProducts && this.state.loadedCart ? (
