@@ -1,23 +1,21 @@
-import React from 'react'
-import ProductItem from './ProductItem/ProductItem'
-import classes from './Products.css'
+import React from "react";
+import ProductItem from "./ProductItem/ProductItem";
+import classes from "./Products.css";
 
-const Products = props => (
-    
-    <div className={classes.Products}>
+const Products = (props) => (
+  <div className={classes.Products}>
     {props.state.products.map((product) => {
-
-        return (    
-            <ProductItem 
-                key={product.id}
-                product={product}
-                cart={props.state.cart}
-                changeCountHandler={props.onClick}
-                addProductHandler={props.onAdd}
-            />
-        )
+      return (
+        <ProductItem
+          key={product.id}
+          product={product}
+          cart={props.state.cart}
+          changeCountHandler={props.onClick}
+          addProductHandler={props.onAdd}
+        />
+      );
     })}
-    </div>
-)
+  </div>
+);
 
-export default Products
+export default Products;
