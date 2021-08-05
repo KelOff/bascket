@@ -41,7 +41,6 @@ class Layout extends Component {
         }
       }
     }
-
     this.setState({
       ...this.state,
       cart: updatedCartArray,
