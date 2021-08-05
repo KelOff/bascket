@@ -2,8 +2,6 @@ import React from "react";
 import ProductItem from "./ProductItem/ProductItem";
 import classes from "./Products.css";
 
-// Test Github PR
-
 const Products = (props) => (
   <div className={classes.Products}>
     {props.state.products.map((product) => {
