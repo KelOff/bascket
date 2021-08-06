@@ -61,15 +61,6 @@ class Layout extends Component {
   };
 
   render() {
-    // this.state.cart.sort(function (a, b) {
-    //   if (a.productId > b.productId) {
-    //     return 1
-    //   }
-    //   if (a.productId < b.productId) {
-    //     return -1
-    //   }
-    //   return 0
-    // })
     return (
       <React.Fragment>
         {this.state.loadedProducts && this.state.loadedCart ? (
